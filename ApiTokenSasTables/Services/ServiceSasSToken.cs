@@ -22,7 +22,7 @@ namespace ApiTokenSasTables.Services
         public string GenerateSaSToken(string curso)
         {
             //DEBEMOS INDICAR LOS PERMISOS QUE DEJAREMOS SOBRE EL TOKEN
-            TableSasPermissions permisos = TableSasPermissions.Read;
+            TableSasPermissions permisos = TableSasPermissions.Read | TableSasPermissions.Delete;
             //DEBEMOS INDICAR EL TIEMPO DE DURACION DE LOS PERMISOS
             TableSasBuilder builder = this.tableClient.GetSasBuilder(permisos, DateTime.Now.AddDays(1));
             //COMO ESTAMOS CON TABLAS, SOLAMENTE VAMOS A PERMITIR
